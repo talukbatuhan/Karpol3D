@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -29,7 +30,7 @@ export default function DebugPage() {
                     setError(error);
                 } else {
                     setStatus('SUCCESS');
-                    setInfo(prev => ({ ...prev, data_sample: data }));
+                    setInfo((prev: any) => ({ ...prev, data_sample: data }));
                 }
             } catch (err: any) {
                 setStatus('CRASHED');

@@ -55,7 +55,29 @@ export default function ProductPage() {
         fetchProduct();
     }, [id]);
 
-    if (loading) return <div className="min-h-screen flex items-center justify-center text-white">Loading...</div>;
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-zinc-950 text-white flex flex-col md:flex-row animate-pulse">
+                {/* 3D Viewer Skeleton */}
+                <div className="w-full md:w-2/3 h-[50vh] md:h-screen bg-zinc-900" />
+
+                {/* Details Skeleton */}
+                <div className="w-full md:w-1/3 p-8 md:p-12 flex flex-col justify-center border-l border-zinc-900 gap-6">
+                    <div className="h-12 bg-zinc-900 rounded w-3/4" />
+                    <div className="h-8 bg-zinc-900 rounded w-1/4" />
+                    <div className="space-y-4">
+                        <div className="h-4 bg-zinc-900 rounded w-full" />
+                        <div className="h-4 bg-zinc-900 rounded w-full" />
+                        <div className="h-4 bg-zinc-900 rounded w-5/6" />
+                    </div>
+                    <div className="flex gap-4 mt-8">
+                        <div className="h-14 bg-zinc-900 rounded-full flex-1" />
+                        <div className="h-14 w-14 bg-zinc-900 rounded-full" />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     if (!product) {
         return (

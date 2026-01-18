@@ -27,7 +27,8 @@ export default function ProductList() {
                     .order('created_at', { ascending: false });
 
                 if (error) {
-                    console.error('Error fetching products:', error);
+                    console.log('Connected to Supabase URL:', supabase['supabaseUrl']);
+                    console.error('Error fetching products:', error.message, error.details, error.hint);
                 } else {
                     setProducts(data || []);
                 }
